@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>hessianService</servlet-name>
+    <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+    <init-param>  
+        <param-name>home-class</param-name>  
+        <param-value>com.exhui.hessian.service.impl.HessianServiceImpl</param-value>  
+    </init-param>
+    <init-param>      
+     <param-name>home-api</param-name>  
+        <param-value>com.exhui.hessian.service.HessianService</param-value>  
+    </init-param> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hessianService</servlet-name>
+    <url-pattern>/hessianService</url-pattern>
+  </servlet-mapping>
+  
+	<context-param> 
+		<param-name>contextConfigLocation</param-name> 
+		<param-value>/WEB-INF/hessian-servlet.xml</param-value> 
+	</context-param> 
+	<servlet> 
+		<servlet-name>hessian</servlet-name> 
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+		<load-on-startup>4</load-on-startup> 
+	</servlet> 
+
+	<servlet-mapping> 
+		<servlet-name>hessian</servlet-name> 
+		<url-pattern>/hessian/*</url-pattern> 
+	</servlet-mapping>
+  <welcome-file-list id="WelcomeFileList">
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jws</welcome-file>
+  </welcome-file-list>
+</web-app>

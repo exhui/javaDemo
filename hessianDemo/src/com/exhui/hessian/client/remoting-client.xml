@@ -1,0 +1,7 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="hessianServiceClient" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="http://localhost:8080/hessianDemo/hessian/hessianTest"/>
+        <property name="serviceInterface" value="com.exhui.hessian.service.HessianService"/>
+    </bean>
+</beans>
